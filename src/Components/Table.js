@@ -11,11 +11,11 @@ class Table extends Component {
                 { name: "C4", id: 3 }
             ],
             data: [
-                ["Mark", "d1", "d1", "d1"],
-                ["Dustin", "d2", "d2", "d2"],
-                ["Zend", "d3", "d3", "d3"],
-                ["Stephen", "d4", "d4", "d4"],
-                ["Pete", "d5", "d5", "d5"]
+                ["Mark", "d1", "d2", "d3"],
+                ["Dustin", "d4", "d5", "d6"],
+                ["Zend", "d7", "d8", "d9"],
+                ["Stephen", "d13", "d14", "d15"],
+                ["Pete", "d12", "d11", "d10"]
             ],
             prev: -1,
             ascSort: true
@@ -50,14 +50,14 @@ class Table extends Component {
                     <thead>
                         <tr>
                             {this.state.columns.map(c => {
-                                return <th key={c} onClick={e => this.handleClick(e, c.id)}>{c.name}</th>
+                                return <th key={c.id} onClick={e => this.handleClick(e, c.id)}>{c.name}</th>
                             })}
                         </tr>
                     </thead>
                     <tbody>
                         {this.state.data.map(r => {
-                            return <tr>{r.map(rv => {
-                                return <td>{rv}</td>
+                            return <tr key={r[0]}>{r.map(rv => {
+                                return <td key={rv}>{rv}</td>
                             })}</tr>
                         }
                         )}
